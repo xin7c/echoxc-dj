@@ -18,6 +18,7 @@ class Query(graphene.ObjectType):
     @graphene.resolve_only_args
     def resolve_users(self):
         return UserModel.objects.all()
-    def resolve_hero(self, info):
+    @graphene.resolve_only_args
+    def resolve_hero(self):
         return Hero(id=1, name="xuchu")
 schema = graphene.Schema(query=Query)

@@ -6,4 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 def index(request):
-    return render(request, 'home.html')
+    meta = request.META
+    REMOTE_ADDR = meta["REMOTE_ADDR"]
+    
+    return render(request, 'home.html', {"REMOTE_ADDR": REMOTE_ADDR})
