@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'index',
-    'book',
+    'blog',
+    'bootstrap_admin',
     'graphene_django',
 ]
 

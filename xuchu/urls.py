@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from index import views as index_views
+from blog import views as blog_views
 from graphene_django.views import GraphQLView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index_views.index, name='home'),
     url(r'^graphql/', GraphQLView.as_view(graphiql=True)),
+    url(r'blog/', blog_views.Blog, name='blog'),
 ]

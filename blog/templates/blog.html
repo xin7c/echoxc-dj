@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-hans">
+<head>
+    <meta charset="utf-8">
+    <title>CC Blog Demo</title>
+</head>
+<body>
+    <p>日记</p>
+    <p>标题:{{ post.title }}</p>
+    <p>发布时间:{{ post.update_time |date:'Y /m /d' }}</p>
+    <p>内容:{{ post.content|safe }}</p>
+</body>
+</html>
