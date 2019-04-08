@@ -11,10 +11,10 @@ class Article(models.Model):
     update_time = models.DateTimeField(u'更新时间',auto_now=True,null=True)
     content = models.TextField(blank=True, null=True)  # 博客文章正文
  
-    def __unicode__(self):
+    def __str__(self):
         return self.title
  
     class Meta:     #按时间下降排序
         ordering = ['-pub_date']
-        verbose_name = "文章"
-        verbose_name_plural = "文章"
+        verbose_name = "日记"
+        verbose_name_plural = "日记列表"

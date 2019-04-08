@@ -9,6 +9,7 @@ class User(DjangoObjectType):
 class Hero(graphene.ObjectType):
     id = graphene.ID()
     name = graphene.String()
+    age = graphene.Int()
 
 
 class Query(graphene.ObjectType):
@@ -20,5 +21,5 @@ class Query(graphene.ObjectType):
         return UserModel.objects.all()
     @graphene.resolve_only_args
     def resolve_hero(self):
-        return Hero(id=1, name="xuchu")
+        return Hero(id=1, name="xuchu", age="33")
 schema = graphene.Schema(query=Query)
