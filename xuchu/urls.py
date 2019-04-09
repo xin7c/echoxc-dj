@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_views.index, name='home'),
     path('graphql/', GraphQLView.as_view(graphiql=True)),
-    path('blog/', blog_views.Blog, name='blog'),
+    path('blog_post/<int:id>/', blog_views.blog_post, name='blog_post'),
+    path('blog_post_list/', blog_views.blog_post_list, name='blog_post_list'),
 ]

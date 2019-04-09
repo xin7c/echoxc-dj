@@ -11,11 +11,16 @@ logger = logging.getLogger(__name__)
 collect_logger = logging.getLogger("default")
 
 # Create your views here.
-def Blog(request):
-    post = Article.objects.all().order_by('id')
+def blog_post_list(request):
     count = Article.objects.count()
+    post_list = Article.objects.values("id","title","content")
+    return render(request, 'blog_list.html', {'count': count, 'post_list': post_list})
+
+
+def blog_post(request, id):
+    post = Article.objects.get(id=id)
     REMOTE_ADDR = request.META["REMOTE_ADDR"]
     # print(post)
     logger.debug("来人了")
     collect_logger.info("请求地址:" + REMOTE_ADDR)
-    return render(request, 'blog.html', {'post': post[0], 'count': count})
+    return render(request, 'blog.html', {'post': post})
