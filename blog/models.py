@@ -5,11 +5,16 @@ from django.db import models
 
 # Create your models here.
 class Article(models.Model):
+    categories = (
+        ('blog', '日记'),
+        ('doc', '文档'),
+    )
     title = models.CharField(u"博客标题",max_length = 100)        #博客标题
-    category = models.CharField(u"博客标签",max_length = 50,blank = True)       #博客标签
+    category = models.CharField(u"博客标签",max_length = 50,blank = True, choices=categories, default='blog')       #博客标签
     pub_date = models.DateTimeField(u"发布日期",auto_now_add = True,editable=True)       #博客发布日期
     update_time = models.DateTimeField(u'更新时间',auto_now=True,null=True)
     content = models.TextField(blank=True, null=True)  # 博客文章正文
+    show = models.BooleanField(blank=True, null=True)
  
     def __str__(self):
         return self.title

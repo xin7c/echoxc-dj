@@ -6,6 +6,6 @@ from blog.models import Article
 
 # Register your models here.
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title','pub_date','category')
- 
+    list_display = ('id','title','pub_date','category','show')
+    list_display_links = ('id','title','show') 
 admin.site.register(Article,ArticleAdmin)

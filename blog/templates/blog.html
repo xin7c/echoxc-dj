@@ -10,5 +10,6 @@
 
 {% block content %}
     <p>发布时间:{{ post.update_time |date:'Y /m /d' }}</p>
-    <p>{{ post.content|safe }}</p
+    <p>{{ post.content|linebreaksbr|safe }}</p>
+    <p>posts count:{{ count }}</p>
 {% endblock %}
