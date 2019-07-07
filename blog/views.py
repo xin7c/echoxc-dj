@@ -13,7 +13,7 @@ collect_logger = logging.getLogger("default")
 # Create your views here.
 def blog_post_list(request):
     count = Article.objects.count()
-    post_list = Article.objects.values("id","title","content").order_by('id')
+    post_list = Article.objects.filter(show="True").values("id", "title", "content", "update_time").order_by('id')
     return render(request, 'blog_list.html', {'count': count, 'post_list': post_list})
 
 

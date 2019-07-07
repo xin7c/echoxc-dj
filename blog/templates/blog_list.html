@@ -15,7 +15,7 @@
     <tbody>
     {% for post in post_list %}
     <tr>
-        <td>{{ post.id }}</td>
+        <td>{{ forloop.counter }}</td>
         <td><a href="{% url 'blog_post' post.id %}">{{ post.title }}</a></td>
     </tr>
     {% endfor %}
